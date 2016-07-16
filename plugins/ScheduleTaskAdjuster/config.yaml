@@ -1,0 +1,14 @@
+name: ScheduleTaskAdjuster
+version: 0.01
+
+description: <__trans phrase="Adjust start time of schedule tasks.">
+plugin_link: https://github.com/masiuchi/mt-plugin-schedule-task-adjuster
+
+author_name: Masahiro Iuchi
+author_link: https://github.com/masiuchi
+
+init_app: $ScheduleTaskAdjuster::MT::Plugin::ScheduleTaskAdjuster::init_app
+
+settings:
+  initialized:
+
