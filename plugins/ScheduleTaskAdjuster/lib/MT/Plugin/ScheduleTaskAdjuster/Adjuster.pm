@@ -14,7 +14,7 @@ sub adjust_tasks {
         if ($task) {
             my $start = $sess->start;
             my $new_start = $start - ( $start % $task->frequency );
-            if ( $new_start ne $start ) {
+            if ( $new_start != $start ) {
                 $sess->start($new_start);
                 $sess->save;
             }
