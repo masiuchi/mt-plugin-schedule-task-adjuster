@@ -4,6 +4,7 @@ use warnings;
 
 use MT::Session;
 use MT::TaskMgr;
+use MT::Util;
 
 sub adjust_tasks {
     my $self       = shift;
@@ -12,7 +13,7 @@ sub adjust_tasks {
     for my $sess (@sessions) {
         my $task = _get_task($sess);
         if ($task) {
-            my $start = $sess->start;
+            my $start = MT::Util::offset( $sess->start );
             my $new_start = $start - ( $start % $task->frequency );
             if ( $new_start != $start ) {
                 $sess->start($new_start);
