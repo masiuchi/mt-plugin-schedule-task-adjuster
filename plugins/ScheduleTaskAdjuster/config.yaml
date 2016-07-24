@@ -13,6 +13,6 @@ settings:
   initialized:
 
 config_settings:
-  AdjustOffset:
+  AdjusterOffset:
     default: 0
 
