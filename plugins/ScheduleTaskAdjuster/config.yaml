@@ -12,3 +12,7 @@ init_app: $ScheduleTaskAdjuster::MT::Plugin::ScheduleTaskAdjuster::init_app
 settings:
   initialized:
 
+config_settings:
+  AdjustOffset:
+    default: 0
+

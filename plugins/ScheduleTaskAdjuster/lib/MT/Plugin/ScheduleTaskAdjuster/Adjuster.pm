@@ -2,6 +2,7 @@ package MT::Plugin::ScheduleTaskAdjuster::Adjuster;
 use strict;
 use warnings;
 
+use MT;
 use MT::Session;
 use MT::TaskMgr;
 use MT::Util;
@@ -13,7 +14,8 @@ sub adjust_tasks {
     for my $sess (@sessions) {
         my $task = _get_task($sess);
         if ($task) {
-            my $start = MT::Util::offset( $sess->start );
+            my $adjuster_offset = MT->config->AdjusterOffset * 3600;
+            my $start = MT::Util::offset( $sess->start ) + $adjuster_offset;
             my $new_start = $start - ( $start % $task->frequency );
             if ( $new_start != $start ) {
                 $sess->start($new_start);
